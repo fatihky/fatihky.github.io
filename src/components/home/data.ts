@@ -35,6 +35,13 @@ export const DATA = {
       stack: ['HTML', 'TypeScript'],
       link: 'https://github.com/purescraps/purehtml',
     },
+    {
+      id: '02',
+      name: 'pundit-ts',
+      desc: 'Organize your authorization logic with full type-safety.',
+      stack: ['Authorization', 'TypeScript'],
+      link: 'https://github.com/fatihky/pundit-ts',
+    },
   ],
   experience: [
     {
