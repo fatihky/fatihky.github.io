@@ -1,0 +1,9 @@
+{
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "home_page": "Ana sayfa",
+  "about_page": "Hakkında sayfası",
+  "example_message": "i18n uygulamanıza hoş geldiniz.",
+  "language_label": "Dil",
+  "current_locale": "Geçerli dil: {locale}",
+  "learn_router": "Paraglide JS Öğren"
+}

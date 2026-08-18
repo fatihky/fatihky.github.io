@@ -1,0 +1,170 @@
+
+@import "tailwindcss";
+
+/*
+ * Homepage "phosphor terminal" palette, expressed as Tailwind v4 theme
+ * tokens. Swapping a value here re-themes the whole homepage; each also
+ * becomes a Tailwind utility (e.g. `bg-bg`, `text-fg-bright`, `border-border`).
+ *
+ * A second palette ("daylight") lives below as a plain override block keyed
+ * off `[data-theme="daylight"]`. Pick the active one from `src/theme.ts`.
+ */
+@theme {
+  --color-bg: #070b08;
+  --color-bg-raised: #0d130e;
+  --color-bg-sunken: #050805;
+  --color-bg-hover: #101a12;
+
+  --color-fg: #3bff7a;
+  --color-fg-bright: #a6ffc4;
+  --color-fg-dim: #1f7d43;
+  --color-fg-faint: #145030;
+
+  --color-amber: #ffb545;
+  --color-danger: #ff5f56;
+  --color-border: #1f7d43;
+
+  /* CRT overlay intensity, themeable alongside the palette. */
+  --overlay-scanline: 0.18;
+  --overlay-vignette: 0.55;
+  --overlay-flicker: 2%;
+}
+
+/*
+ * "Daylight" — a light, fresh, professional alternative: soft slate
+ * neutrals with a teal/amber accent pair instead of phosphor green.
+ */
+[data-theme='daylight'] {
+  --color-bg: #eef1f5;
+  --color-bg-raised: #f8fafc;
+  --color-bg-sunken: #e3e8ee;
+  --color-bg-hover: #e6e9f7;
+
+  --color-fg: #334155;
+  --color-fg-bright: #0e7490;
+  --color-fg-dim: #64748b;
+  --color-fg-faint: #cbd5e1;
+
+  --color-amber: #d97706;
+  --color-danger: #dc2626;
+  --color-border: #b6c0cc;
+
+  --overlay-scanline: 0.04;
+  --overlay-vignette: 0.04;
+  --overlay-flicker: 0.5%;
+}
+
+/*
+ * "Imperial" — a bold, regal palette: deep imperial blue grounded by
+ * charcoal and alabaster grey, with a cerulean/strawberry accent pair.
+ */
+[data-theme='imperial'] {
+  --color-bg: #0a2463;
+  --color-bg-raised: #223a73;
+  --color-bg-sunken: #092059;
+  --color-bg-hover: #162f6b;
+
+  --color-fg: #e2e2e2;
+  --color-fg-bright: #ffffff;
+  --color-fg-dim: #9aa4b2;
+  --color-fg-faint: #605f5e;
+
+  --color-amber: #247ba0;
+  --color-danger: #fb3640;
+  --color-border: #605f5e;
+
+  --overlay-scanline: 0.08;
+  --overlay-vignette: 0.35;
+  --overlay-flicker: 1%;
+}
+
+/*
+ * "Turquoise" — a classy, moody dark palette: deep teal-charcoal grounded
+ * by a bright turquoise/steel-blue accent pair, with a warm terracotta
+ * danger tone for contrast against the cool base.
+ */
+[data-theme='turquoise'] {
+  --color-bg: #16221f;
+  --color-bg-raised: #17332e;
+  --color-bg-sunken: #0e1614;
+  --color-bg-hover: #204741;
+
+  --color-fg: #96b1ad;
+  --color-fg-bright: #30d5c8;
+  --color-fg-dim: #6d8985;
+  --color-fg-faint: #3d5551;
+
+  --color-amber: #598bd5;
+  --color-danger: #e0665a;
+  --color-border: #93c0ff;
+
+  --overlay-scanline: 0.06;
+  --overlay-vignette: 0.3;
+  --overlay-flicker: 0.8%;
+}
+
+/*
+ * "Rosewood" — a warm, antique palette: cream antique-white grounded by
+ * dusty taupe, with a cherry-rose/cinnamon-wood accent pair and a soft
+ * dusty-rose danger tone.
+ */
+[data-theme='rosewood'] {
+  --color-bg: #f0e7d8;
+  --color-bg-raised: #f8f2e8;
+  --color-bg-sunken: #e3d5c4;
+  --color-bg-hover: #ecdccf;
+
+  --color-fg: #4a3934;
+  --color-fg-bright: #a63a50;
+  --color-fg-dim: #ab9b96;
+  --color-fg-faint: #c7b2a5;
+
+  --color-amber: #a1674a;
+  --color-danger: #ba6e6e;
+  --color-border: #d3c2ba;
+
+  --overlay-scanline: 0.04;
+  --overlay-vignette: 0.05;
+  --overlay-flicker: 0.5%;
+}
+
+/*
+ * "Manuscript" — a reader-oriented palette built for long-form legibility
+ * rather than terminal flair: warm paper background, high-contrast ink
+ * body text, and a fountain-pen ink-blue accent for headings/links. The
+ * CRT overlay is dialed almost to zero so it never competes with the copy.
+ */
+[data-theme='manuscript'] {
+  --color-bg: #f7f3ea;
+  --color-bg-raised: #fffdf8;
+  --color-bg-sunken: #ece5d6;
+  --color-bg-hover: #efe8d9;
+
+  --color-fg: #2e2b26;
+  --color-fg-bright: #1e3a5f;
+  --color-fg-dim: #6f6a5e;
+  --color-fg-faint: #c2b9a8;
+
+  --color-amber: #a8631f;
+  --color-danger: #a83c32;
+  --color-border: #ddd3bd;
+
+  --overlay-scanline: 0.02;
+  --overlay-vignette: 0.02;
+  --overlay-flicker: 0.3%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
