@@ -42,6 +42,13 @@ export const DATA = {
       stack: ['Authorization', 'TypeScript'],
       link: 'https://github.com/fatihky/pundit-ts',
     },
+    {
+      id: '03',
+      name: 'clhub',
+      desc: 'Changelog Hub for several package managers.',
+      stack: ['Changelog', 'TypeScript'],
+      link: 'https://github.com/fatihky/clhub',
+    },
   ],
   experience: [
     {
