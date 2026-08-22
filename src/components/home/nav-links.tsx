@@ -11,6 +11,7 @@ interface NavLinksProps {
 }
 
 const navItems: NavItem[] = [
+  { id: 'links', label: 'links', href: '/links' },
   { id: 'posts', label: 'posts', href: '/posts' },
   { id: 'projects', label: 'projects', href: '/projects' },
   // /about is temporarily deprecated, will be re-enabled later.

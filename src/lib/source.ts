@@ -42,3 +42,30 @@ export const blogSource = loader({
   baseUrl: '/posts',
   source: blog.toFumadocsSource(),
 });
+
+// Links — simple JSON collection (no MDX body needed)
+const linkFiles = import.meta.glob('../../content/links/**/*.json', {
+  eager: true,
+  import: 'default',
+});
+
+export interface LinkEntry {
+  title: string;
+  url: string;
+  description?: string;
+  tags?: string[];
+  date?: string;
+}
+
+export function getLinks(): LinkEntry[] {
+  const all: LinkEntry[] = [];
+  for (const data of Object.values(linkFiles)) {
+    const entries = data as LinkEntry | LinkEntry[];
+    if (Array.isArray(entries)) all.push(...entries);
+    else all.push(entries);
+  }
+  return all.sort((a, b) => {
+    if (!a.date || !b.date) return 0;
+    return a.date < b.date ? 1 : -1;
+  });
+}
