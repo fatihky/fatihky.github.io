@@ -4,11 +4,15 @@ import { Footer } from '#/components/home/footer';
 import { Nav } from '#/components/home/nav';
 import { PhosphorStyles } from '#/components/home/phosphor-styles';
 import { Section } from '#/components/home/section';
-import { getLinks } from '#/lib/source';
+import { getLinksByTag } from '#/lib/source';
 
-export function LinksPage() {
+interface LinksTagPageProps {
+  tag: string;
+}
+
+export function LinksTagPage({ tag }: LinksTagPageProps) {
   const scrollTo = () => {};
-  const links = getLinks();
+  const links = getLinksByTag(tag);
 
   return (
     <div className="phosphor-root">
@@ -21,7 +25,13 @@ export function LinksPage() {
       <Nav handle={DATA.handle} host={DATA.host} onNavigate={scrollTo} />
 
       <main className="container">
-        <Section id="links" index="01" label="~/links">
+        <Section id="links" index="01" label={`~/links/tags/${tag}`}>
+          <div className="post-filter">
+            <span className="post-filter__label">$ grep #{tag}</span>
+            <Link className="post-filter__clear" to="/links">
+              ✕ clear
+            </Link>
+          </div>
           <div className="post-list">
             {links.map((link) => (
               <article className="post" key={link.url}>
@@ -49,14 +59,14 @@ export function LinksPage() {
                 )}
                 {link.tags && link.tags.length > 0 && (
                   <div className="post__tags">
-                    {link.tags.map((tag) => (
+                    {link.tags.map((t) => (
                       <Link
                         className="tag"
-                        key={tag}
-                        params={{ slug: tag }}
+                        key={t}
+                        params={{ slug: t }}
                         to="/links/tags/$slug"
                       >
-                        #{tag}
+                        #{t}
                       </Link>
                     ))}
                   </div>
@@ -64,6 +74,11 @@ export function LinksPage() {
               </article>
             ))}
           </div>
+          {links.length === 0 && (
+            <div className="post-missing">
+              grep: /links/tags/{tag}: no links matching
+            </div>
+          )}
         </Section>
       </main>
 

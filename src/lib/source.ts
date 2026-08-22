@@ -69,3 +69,17 @@ export function getLinks(): LinkEntry[] {
     return a.date < b.date ? 1 : -1;
   });
 }
+
+export function getLinkTags(): string[] {
+  const tags = new Set<string>();
+  for (const link of getLinks()) {
+    if (link.tags) {
+      for (const tag of link.tags) tags.add(tag);
+    }
+  }
+  return [...tags].sort();
+}
+
+export function getLinksByTag(tag: string): LinkEntry[] {
+  return getLinks().filter((l) => l.tags?.includes(tag));
+}

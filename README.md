@@ -64,6 +64,17 @@ TanStack will automatically generate the content of the route file for you.
 
 Now that you have two routes you can use a `Link` component to navigate between them.
 
+### Link Tags & Atom Feed
+
+Links support tag-based filtering at `/links/tags/:slug`. Tags are defined in
+`content/links/links.json` and automatically generate prerendered tag pages.
+
+An Atom feed is generated at `/links/feed.atom` as a postbuild step
+(`scripts/generate-links-feed.mjs`). It runs automatically after `vite build`.
+The feed includes title, URL, date, description, and category tags for each link.
+A `<link rel="alternate">` tag is included in the `/links` page head for feed
+autodiscovery.
+
 ### Adding Links
 
 To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
