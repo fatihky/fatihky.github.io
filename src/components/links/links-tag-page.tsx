@@ -79,6 +79,12 @@ export function LinksTagPage({ tag }: LinksTagPageProps) {
               grep: /links/tags/{tag}: no links matching
             </div>
           )}
+          <div className="post-filter">
+            <span className="post-filter__label">$ cat feed.atom</span>
+            <a className="post-filter__clear" href="/links/feed.atom">
+              → subscribe (Atom)
+            </a>
+          </div>
         </Section>
       </main>
 
