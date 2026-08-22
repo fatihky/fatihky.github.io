@@ -1,5 +1,6 @@
-import { input } from "@inquirer/prompts";
 import { Command } from "@commander-js/extra-typings";
+import { confirm, input } from "@inquirer/prompts";
+import { execSync } from "node:child_process";
 import { readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -48,6 +49,7 @@ program
   .description("Add a new link to links.json interactively")
   .option("-u, --url <url>", "URL to add")
   .option("-t, --tags <tags>", "Comma-separated tags")
+  .option("-c, --commit", "Create a git commit after adding the link")
   .action(async (opts) => {
     let url = opts.url;
     if (!url) {
@@ -98,6 +100,12 @@ program
     await writeFile(LINKS_FILE, JSON.stringify(existing, null, 2) + "\n");
 
     console.log(`\nAdded "${title}" to ${LINKS_FILE}`);
+
+    const shouldCommit = opts.commit ?? await confirm({ message: "Create a git commit?", default: false });
+    if (shouldCommit) {
+      execSync(`git add ${LINKS_FILE}`, { stdio: "inherit" });
+      execSync(`git commit -m "Add link: ${title}"`, { stdio: "inherit" });
+    }
   });
 
 program.parse();
