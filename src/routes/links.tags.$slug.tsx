@@ -8,7 +8,7 @@ export const Route = createFileRoute('/links/tags/$slug')({
       {
         rel: 'alternate',
         type: 'application/atom+xml',
-        href: '/links/feed.atom',
+        href: `/links/tags/${params.slug}/feed.atom`,
         title: 'Links Atom Feed',
       },
     ],

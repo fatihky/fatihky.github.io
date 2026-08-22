@@ -81,7 +81,7 @@ export function LinksTagPage({ tag }: LinksTagPageProps) {
           )}
           <div className="post-filter">
             <span className="post-filter__label">$ cat feed.atom</span>
-            <a className="post-filter__clear" href="/links/feed.atom">
+            <a className="post-filter__clear" href={`/links/tags/${tag}/feed.atom`}>
               → subscribe (Atom)
             </a>
           </div>
