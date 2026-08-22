@@ -1,23 +1,13 @@
 [
   {
-    "title": "TanStack Router",
-    "url": "https://tanstack.com/router",
-    "description": "Type-safe router for React, Solid, Vue & Svelte with first-class TypeScript support.",
-    "tags": ["react", "router", "typescript"],
-    "date": "2026-08-22"
-  },
-  {
-    "title": "fumadocs",
-    "url": "https://fumadocs.vercel.app",
-    "description": "Documentation framework powered by Next.js with built-in MDX support.",
-    "tags": ["docs", "nextjs", "mdx"],
-    "date": "2026-08-22"
-  },
-  {
-    "title": "Tailwind CSS v4",
-    "url": "https://tailwindcss.com/blog/tailwindcss-v4",
-    "description": "Next generation of Tailwind CSS with a new engine and CSS-first configuration.",
-    "tags": ["css", "tailwind", "design"],
+    "title": "yaroslav/kino: A high-performance Ractor web server for Ruby 4.0+: Rack 3-",
+    "url": "https://github.com/yaroslav/kino",
+    "description": "A high-performance Ractor web server for Ruby 4.0+: Rack 3-based, with a Rust Tokio/Hyper front-end and Ractor-parallel Ruby workers and threaded fallback mode. - yaroslav/kino",
+    "tags": [
+      "ruby",
+      "rust",
+      "scalability"
+    ],
     "date": "2026-08-22"
   }
 ]
