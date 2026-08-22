@@ -18,5 +18,16 @@
       "tools"
     ],
     "date": "2026-08-22"
+  },
+  {
+    "title": "greptimedb: The open-source observability database. One columnar engine for metrics, logs, and traces, on object stor",
+    "url": "https://github.com/greptimeteam/greptimedb",
+    "description": "The open-source observability database. One columnar engine for metrics, logs, and traces, on object storage. - GreptimeTeam/greptimedb",
+    "tags": [
+      "databases",
+      "opentelemetry",
+      "logs"
+    ],
+    "date": "2026-08-22"
   }
 ]
