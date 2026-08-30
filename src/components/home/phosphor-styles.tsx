@@ -235,11 +235,12 @@ export function PhosphorStyles() {
         .project__id { color: var(--color-fg-faint); font-size: 13px; }
         .project__name { color: var(--color-fg-bright); font-size: 15px; font-weight: 700; }
         .project__link {
-          margin-left: auto;
           color: var(--color-fg-dim);
           font-size: 13px;
           text-decoration: none;
         }
+        .project__arrow { margin-left: auto; color: var(--color-fg-dim); font-size: 13px; }
+        .project__sep { color: var(--color-fg-faint); font-size: 13px; }
         .project__link:hover, .project__link:focus-visible { color: var(--color-amber); outline: none; }
         .project__desc { font-size: 13.5px; color: var(--color-fg); opacity: 0.9; margin-bottom: 10px; }
         .project__stack { display: flex; gap: 8px; flex-wrap: wrap; }

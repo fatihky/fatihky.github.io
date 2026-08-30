@@ -33,21 +33,27 @@ export const DATA = {
       name: 'purehtml',
       desc: 'YAML configured HTML parser library built for easy and powerful parser configurations.',
       stack: ['HTML', 'TypeScript'],
-      link: 'https://github.com/purescraps/purehtml',
+      links: [
+        { label: 'github', url: 'https://github.com/purescraps/purehtml' },
+        { label: 'docs', url: 'https://purescraps.github.io/purehtml/' },
+      ],
     },
     {
       id: '02',
       name: 'pundit-ts',
       desc: 'Organize your authorization logic with full type-safety.',
       stack: ['Authorization', 'TypeScript'],
-      link: 'https://github.com/fatihky/pundit-ts',
+      links: [{ label: 'github', url: 'https://github.com/fatihky/pundit-ts' }],
     },
     {
       id: '03',
       name: 'clhub',
       desc: 'Changelog Hub for several package managers.',
       stack: ['Changelog', 'TypeScript'],
-      link: 'https://github.com/fatihky/clhub',
+      links: [
+        { label: 'github', url: 'https://github.com/fatihky/clhub' },
+        { label: 'website', url: 'https://fatihky.github.io/clhub/' },
+      ],
     },
   ],
   experience: [
