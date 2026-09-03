@@ -43,6 +43,22 @@ export const blogSource = loader({
   source: blog.toFumadocsSource(),
 });
 
+// Jottings — short notes, drafts, thoughts
+export const jottings = defineCollections({
+  type: 'doc',
+  dir: 'content/jottings',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.string(),
+  }),
+});
+
+export const jottingsSource = loader({
+  baseUrl: '/jottings',
+  source: jottings.toFumadocsSource(),
+});
+
 // Links — simple JSON collection (no MDX body needed)
 const linkFiles = import.meta.glob('../../content/links/**/*.json', {
   eager: true,

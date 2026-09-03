@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as JottingsIndexRouteImport } from './routes/jottings.index'
+import { Route as JottingsSlugRouteImport } from './routes/jottings.$slug'
 import { Route as LinksIndexRouteImport } from './routes/links.index'
 import { Route as PostsIndexRouteImport } from './routes/posts.index'
 import { Route as PostsSlugRouteImport } from './routes/posts.$slug'
@@ -25,6 +27,16 @@ const IndexRoute = IndexRouteImport.update({
 const ProjectsRoute = ProjectsRouteImport.update({
   id: '/projects',
   path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JottingsIndexRoute = JottingsIndexRouteImport.update({
+  id: '/jottings/',
+  path: '/jottings/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JottingsSlugRoute = JottingsSlugRouteImport.update({
+  id: '/jottings/$slug',
+  path: '/jottings/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LinksIndexRoute = LinksIndexRouteImport.update({
@@ -56,7 +68,9 @@ const PostsTagsSlugRoute = PostsTagsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/projects': typeof ProjectsRoute
+  '/jottings/$slug': typeof JottingsSlugRoute
   '/posts/$slug': typeof PostsSlugRoute
+  '/jottings/': typeof JottingsIndexRoute
   '/links/': typeof LinksIndexRoute
   '/posts/': typeof PostsIndexRoute
   '/links/tags/$slug': typeof LinksTagsSlugRoute
@@ -65,7 +79,9 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/projects': typeof ProjectsRoute
+  '/jottings/$slug': typeof JottingsSlugRoute
   '/posts/$slug': typeof PostsSlugRoute
+  '/jottings': typeof JottingsIndexRoute
   '/links': typeof LinksIndexRoute
   '/posts': typeof PostsIndexRoute
   '/links/tags/$slug': typeof LinksTagsSlugRoute
@@ -75,7 +91,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/projects': typeof ProjectsRoute
+  '/jottings/$slug': typeof JottingsSlugRoute
   '/posts/$slug': typeof PostsSlugRoute
+  '/jottings/': typeof JottingsIndexRoute
   '/links/': typeof LinksIndexRoute
   '/posts/': typeof PostsIndexRoute
   '/links/tags/$slug': typeof LinksTagsSlugRoute
@@ -86,7 +104,9 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/projects'
+    | '/jottings/$slug'
     | '/posts/$slug'
+    | '/jottings/'
     | '/links/'
     | '/posts/'
     | '/links/tags/$slug'
@@ -95,7 +115,9 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/projects'
+    | '/jottings/$slug'
     | '/posts/$slug'
+    | '/jottings'
     | '/links'
     | '/posts'
     | '/links/tags/$slug'
@@ -104,7 +126,9 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/projects'
+    | '/jottings/$slug'
     | '/posts/$slug'
+    | '/jottings/'
     | '/links/'
     | '/posts/'
     | '/links/tags/$slug'
@@ -114,7 +138,9 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProjectsRoute: typeof ProjectsRoute
+  JottingsSlugRoute: typeof JottingsSlugRoute
   PostsSlugRoute: typeof PostsSlugRoute
+  JottingsIndexRoute: typeof JottingsIndexRoute
   LinksIndexRoute: typeof LinksIndexRoute
   PostsIndexRoute: typeof PostsIndexRoute
   LinksTagsSlugRoute: typeof LinksTagsSlugRoute
@@ -135,6 +161,20 @@ declare module '@tanstack/react-router' {
       path: '/projects'
       fullPath: '/projects'
       preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jottings/': {
+      id: '/jottings/'
+      path: '/jottings'
+      fullPath: '/jottings/'
+      preLoaderRoute: typeof JottingsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jottings/$slug': {
+      id: '/jottings/$slug'
+      path: '/jottings/$slug'
+      fullPath: '/jottings/$slug'
+      preLoaderRoute: typeof JottingsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/links/': {
@@ -178,7 +218,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProjectsRoute: ProjectsRoute,
+  JottingsSlugRoute: JottingsSlugRoute,
   PostsSlugRoute: PostsSlugRoute,
+  JottingsIndexRoute: JottingsIndexRoute,
   LinksIndexRoute: LinksIndexRoute,
   PostsIndexRoute: PostsIndexRoute,
   LinksTagsSlugRoute: LinksTagsSlugRoute,
