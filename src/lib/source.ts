@@ -99,3 +99,26 @@ export function getLinkTags(): string[] {
 export function getLinksByTag(tag: string): LinkEntry[] {
   return getLinks().filter((l) => l.tags?.includes(tag));
 }
+
+// Websites — curated interesting websites
+const websiteFiles = import.meta.glob('../../content/websites/**/*.json', {
+  eager: true,
+  import: 'default',
+});
+
+export interface WebsiteEntry {
+  title: string;
+  url: string;
+  description?: string;
+  category?: string;
+}
+
+export function getWebsites(): WebsiteEntry[] {
+  const all: WebsiteEntry[] = [];
+  for (const data of Object.values(websiteFiles)) {
+    const entries = data as WebsiteEntry | WebsiteEntry[];
+    if (Array.isArray(entries)) all.push(...entries);
+    else all.push(entries);
+  }
+  return all.sort((a, b) => a.title.localeCompare(b.title));
+}

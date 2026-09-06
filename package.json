@@ -14,7 +14,8 @@
     "lint": "biome lint",
     "lint:tags": "node scripts/lint-tags.mjs",
     "check": "biome check",
-    "add-link": "bun scripts/add-link.ts"
+    "add-link": "bun scripts/add-link.ts",
+    "add-site": "bun scripts/add-site.ts"
   },
   "dependencies": {
     "@commander-js/extra-typings": "^15.0.0",

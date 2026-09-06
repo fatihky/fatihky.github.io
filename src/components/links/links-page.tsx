@@ -4,11 +4,12 @@ import { Footer } from '#/components/home/footer';
 import { Nav } from '#/components/home/nav';
 import { PhosphorStyles } from '#/components/home/phosphor-styles';
 import { Section } from '#/components/home/section';
-import { getLinks } from '#/lib/source';
+import { getLinks, getWebsites } from '#/lib/source';
 
 export function LinksPage() {
   const scrollTo = () => {};
   const links = getLinks();
+  const websites = getWebsites();
 
   return (
     <div className="phosphor-root">
@@ -69,6 +70,39 @@ export function LinksPage() {
             <a className="post-filter__clear" href="/links/feed.atom">
               → subscribe (Atom)
             </a>
+          </div>
+        </Section>
+
+        <Section id="websites" index="02" label="~/websites">
+          <div className="post-list">
+            {websites.map((site) => (
+              <article className="post" key={site.url}>
+                <div className="post__top">
+                  {site.category && (
+                    <span className="post__date">{site.category}</span>
+                  )}
+                  <a
+                    className="post__link"
+                    href={site.url}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    → visit
+                  </a>
+                </div>
+                <a
+                  className="post__title"
+                  href={site.url}
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {site.title}
+                </a>
+                {site.description && (
+                  <div className="post__excerpt">{site.description}</div>
+                )}
+              </article>
+            ))}
           </div>
         </Section>
       </main>
