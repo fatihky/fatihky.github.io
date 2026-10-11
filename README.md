@@ -70,10 +70,22 @@ Links support tag-based filtering at `/links/tags/:slug`. Tags are defined in
 `content/links/links.json` and automatically generate prerendered tag pages.
 
 An Atom feed is generated at `/links/feed.atom` as a postbuild step
-(`scripts/generate-links-feed.mjs`). It runs automatically after `vite build`.
+(`scripts/generate-links-feed.ts`). It runs automatically after `vite build`.
 The feed includes title, URL, date, description, and category tags for each link.
 A `<link rel="alternate">` tag is included in the `/links` page head for feed
-autodiscovery.
+autodiscovery. Per-tag feeds are also generated at `/links/tags/:slug/feed.atom`.
+
+### Post & Jotting Atom Feeds
+
+Atom feeds for blog posts (`/posts/feed.atom`) and jottings
+(`/jottings/feed.atom`) are generated as a postbuild step
+(`scripts/generate-mdx-feeds.ts`), reading frontmatter from
+`content/blog/*.mdx` and `content/jottings/*.mdx` and tags from
+`content/tags/tags.json`. It runs automatically after `vite build`, includes
+title, URL, date, description, and category tags for each entry, and generates
+per-tag feeds at `/posts/tags/:slug/feed.atom` and
+`/jottings/tags/:slug/feed.atom`. A `<link rel="alternate">` tag is included in
+each collection's index page head for feed autodiscovery.
 
 ### Adding Links
 

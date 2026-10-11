@@ -67,7 +67,7 @@ ${entries}
 `;
 }
 
-const siteUrl = 'https://ag.fth';
+const siteUrl = 'https://fatihky.github.io';
 const feedUrl = `${siteUrl}/links/feed.atom`;
 const updated = links[0]?.date
   ? new Date(links[0].date).toISOString()

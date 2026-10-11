@@ -58,6 +58,12 @@ export function PostsPage() {
               </article>
             ))}
           </div>
+          <div className="post-filter">
+            <span className="post-filter__label">$ cat feed.atom</span>
+            <a className="post-filter__clear" href="/posts/feed.atom">
+              → subscribe (Atom)
+            </a>
+          </div>
         </Section>
       </main>
 

@@ -4,6 +4,14 @@ import { JottingsPage } from '#/components/jottings/jottings-page';
 export const Route = createFileRoute('/jottings/')({
   head: () => ({
     meta: [{ title: 'jottings — fatihky' }],
+    links: [
+      {
+        rel: 'alternate',
+        type: 'application/atom+xml',
+        href: '/jottings/feed.atom',
+        title: 'Jottings Atom Feed',
+      },
+    ],
   }),
   component: JottingsPage,
 });
