@@ -4,7 +4,7 @@ import { Footer } from '#/components/home/footer';
 import { Nav } from '#/components/home/nav';
 import { PhosphorStyles } from '#/components/home/phosphor-styles';
 import { Section } from '#/components/home/section';
-import { getLinks, getWebsites } from '#/lib/source';
+import { getLinks, getWebsites, formatDateTime } from '#/lib/source';
 
 export function LinksPage() {
   const scrollTo = () => {};
@@ -27,7 +27,7 @@ export function LinksPage() {
             {links.map((link) => (
               <article className="post" key={link.url}>
                 <div className="post__top">
-                  {link.date && <span className="post__date">{link.date}</span>}
+                  {link.date && <span className="post__date">{formatDateTime(link.date)}</span>}
                   <a
                     className="post__link"
                     href={link.url}

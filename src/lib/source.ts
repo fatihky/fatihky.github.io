@@ -13,6 +13,15 @@ export const blog = defineCollections({
   }),
 });
 
+// Format a stored ISO-8601 datetime (or legacy date-only string) as "YYYY-MM-DD HH:mm".
+export function formatDateTime(value?: string): string {
+  if (!value) return "";
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return value.slice(0, 10);
+  const pad = (n: number) => String(n).padStart(2, "0");
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+}
+
 // fumadocs-mdx 15.2.3 emits `meta:` for standalone meta collections but its
 // runtime reads `entries`, so call the runtime directly to avoid the bug.
 // Keys must be relative to `base` with a `./` prefix (see fileInfo()).

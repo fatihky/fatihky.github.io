@@ -4,7 +4,7 @@ import { DATA } from '#/components/home/data';
 import { Footer } from '#/components/home/footer';
 import { Nav } from '#/components/home/nav';
 import { PhosphorStyles } from '#/components/home/phosphor-styles';
-import { jottings } from '#/lib/source';
+import { jottings, formatDateTime } from '#/lib/source';
 
 interface JottingPageProps {
   slug: string;
@@ -32,7 +32,7 @@ export function JottingPage({ slug }: JottingPageProps) {
           <article>
             <header className="post-header my-10">
               <div className="post-header__top">
-                <span className="post-header__date">{entry.date}</span>
+                <span className="post-header__date">{formatDateTime(entry.date)}</span>
                 <span className="post-header__path">~/jottings/{slug}</span>
               </div>
               <h1 className="post-header__title">{entry.title}</h1>

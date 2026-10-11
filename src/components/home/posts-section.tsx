@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { blogSource, getTags } from '#/lib/source';
+import { blogSource, getTags, formatDateTime } from '#/lib/source';
 import { Section } from './section';
 
 export function PostsSection() {
@@ -14,7 +14,7 @@ export function PostsSection() {
         {posts.map((p) => (
           <article className="post" key={p.url}>
             <div className="post__top">
-              <span className="post__date">{p.data.date}</span>
+              <span className="post__date">{formatDateTime(p.data.date)}</span>
               <Link className="post__link" to={p.url}>
                 → read
               </Link>

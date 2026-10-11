@@ -4,6 +4,7 @@ import { execSync } from "node:child_process";
 import { writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { nowLocalISO } from "./datetime.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const JOTTINGS_DIR = resolve(__dirname, "../content/jottings");
@@ -25,7 +26,7 @@ program
   .option("-t, --title <title>", "Title of the jotting")
   .option("-d, --description <description>", "Short description")
   .option("-s, --slug <slug>", "Filename slug (defaults to slugified title)")
-  .option("--date <date>", "Date (YYYY-MM-DD, defaults to today)")
+  .option("--date <date>", "Datetime (ISO-8601, defaults to now)")
   .option("--commit", "Create a git commit after adding the jotting")
   .action(async (opts) => {
     const title = (
@@ -47,7 +48,7 @@ program
       validate: (v) => !!v.trim() || "Slug is required",
     }))).trim();
 
-    const date = opts.date?.trim() || new Date().toISOString().slice(0, 10);
+    const date = opts.date?.trim() || nowLocalISO();
 
     const body = await editor({
       message: "Body (MDX):",

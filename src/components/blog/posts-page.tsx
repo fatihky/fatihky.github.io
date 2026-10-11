@@ -5,7 +5,7 @@ import { Footer } from '#/components/home/footer';
 import { Nav } from '#/components/home/nav';
 import { PhosphorStyles } from '#/components/home/phosphor-styles';
 import { Section } from '#/components/home/section';
-import { blogSource, getTags } from '#/lib/source';
+import { blogSource, getTags, formatDateTime } from '#/lib/source';
 
 export function PostsPage() {
   const scrollTo = () => {};
@@ -32,7 +32,7 @@ export function PostsPage() {
             {posts.map((p) => (
               <article className="post" key={p.url}>
                 <div className="post__top">
-                  <span className="post__date">{p.data.date}</span>
+                  <span className="post__date">{formatDateTime(p.data.date)}</span>
                   <Link className="post__link" to={p.url}>
                     → read
                   </Link>

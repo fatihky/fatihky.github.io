@@ -4,7 +4,7 @@ import { DATA } from '#/components/home/data';
 import { Footer } from '#/components/home/footer';
 import { Nav } from '#/components/home/nav';
 import { PhosphorStyles } from '#/components/home/phosphor-styles';
-import { blog, getTags } from '#/lib/source';
+import { blog, getTags, formatDateTime } from '#/lib/source';
 
 interface PostPageProps {
   slug: string;
@@ -33,7 +33,7 @@ export function PostPage({ slug }: PostPageProps) {
           <article>
             <header className="post-header my-10">
               <div className="post-header__top">
-                <span className="post-header__date">{entry.date}</span>
+                <span className="post-header__date">{formatDateTime(entry.date)}</span>
                 <span className="post-header__path">~/posts/{slug}</span>
               </div>
               <h1 className="post-header__title">{entry.title}</h1>

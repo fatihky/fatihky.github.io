@@ -8,7 +8,7 @@
       "rust",
       "scalability"
     ],
-    "date": "2026-08-22"
+    "date": "2026-08-22T00:00:00"
   },
   {
     "title": "r14dd/patent: A prior-art search for your code ideas — has this dev tool already been shipped?",
@@ -17,7 +17,7 @@
     "tags": [
       "tools"
     ],
-    "date": "2026-08-22"
+    "date": "2026-08-22T00:00:00"
   },
   {
     "title": "greptimedb: The open-source observability database. One columnar engine for metrics, logs, and traces, on object stor",
@@ -28,6 +28,6 @@
       "opentelemetry",
       "logs"
     ],
-    "date": "2026-08-22"
+    "date": "2026-08-22T00:00:00"
   }
 ]

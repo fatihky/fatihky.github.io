@@ -4,6 +4,7 @@ import { execSync } from "node:child_process";
 import { readFile, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { nowLocalISO } from "./datetime.ts";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const LINKS_FILE = resolve(__dirname, "../content/links/links.json");
@@ -91,7 +92,7 @@ program
         .filter(Boolean);
     }
 
-    const date = new Date().toISOString().slice(0, 10);
+    const date = nowLocalISO();
 
     const entry = { title, url, description, tags, date };
 
