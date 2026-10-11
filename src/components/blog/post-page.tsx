@@ -31,10 +31,10 @@ export function PostPage({ slug }: PostPageProps) {
       <main className="container">
         {entry && Body ? (
           <article>
-            <header className="post-header my-10">
+            <header className="post-header mb-6 mt-4">
               <div className="post-header__top">
-                <span className="post-header__date">{formatDateTime(entry.date)}</span>
                 <span className="post-header__path">~/posts/{slug}</span>
+                <span className="post-header__date">{formatDateTime(entry.date)}</span>
               </div>
               <h1 className="post-header__title">{entry.title}</h1>
               <p className="post-header__desc">{entry.description}</p>

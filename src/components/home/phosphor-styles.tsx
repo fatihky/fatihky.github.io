@@ -122,7 +122,7 @@ export function PhosphorStyles() {
         .nav__links a::before { content: "./"; color: var(--color-fg-faint); }
 
         /* LAYOUT */
-        .container { max-width: 880px; margin: 0 auto; }
+        .container { max-width: 880px; margin: 0 auto; padding: 0 20px; }
 
         /* HERO */
         .hero {
@@ -415,7 +415,7 @@ export function PhosphorStyles() {
 
         /* FOOTER */
         .footer {
-          padding: 30px 0 60px;
+          padding: 20px 0 32px;
           font-size: 12px;
           color: var(--color-fg-faint);
           text-align: center;
@@ -449,9 +449,14 @@ export function PhosphorStyles() {
 
         /* RESPONSIVE */
         @media (max-width: 640px) {
-          .nav__inner { font-size: 12px; gap: 12px; }
+          .container { padding: 0 12px; }
+          .nav__inner { font-size: 12px; gap: 12px; padding: 12px 12px; }
+          .footer__inner { padding: 0 12px; }
           .log-entry { grid-template-columns: 70px 1px 1fr; gap: 10px; }
-          .hero { padding: 12vh 0 8vh; }
+          .hero { padding: 9vh 0 6vh; }
+          .section { padding: 4.5vh 0; }
+          .about-block, .skills-cfg { padding: 14px; }
+          .project, .post { padding: 12px; }
         }
       `}</style>
   );

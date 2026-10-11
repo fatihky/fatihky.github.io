@@ -111,7 +111,7 @@ export function BlogStyles() {
         }
         .post-back {
           display: inline-block;
-          margin-top: 40px;
+          margin-top: 24px;
           color: var(--color-fg-dim);
           font-size: 13px;
           text-decoration: none;
@@ -123,6 +123,14 @@ export function BlogStyles() {
           border-radius: 10px;
           padding: 20px 22px;
           font-size: 14px;
+        }
+        @media (max-width: 640px) {
+          .post-header__top {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+          }
+          .post-header__date { order: 2; }
         }
     `}</style>
   );
